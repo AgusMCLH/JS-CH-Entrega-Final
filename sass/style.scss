@@ -1,0 +1,1071 @@
+$blanco: #FFFCF2;
+$gris: #CCC4B8;
+$negro1: #403D39;
+$negro2: #252422;
+$naranja: #EA5E29;
+@import url('https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&display=swap');
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+
+
+
+.slick-arrow{
+    &:nth-child(3){
+        right: -30px;
+    }
+    &:nth-child(1){
+        left: -30px;
+        transform: rotate(180deg);
+    }
+    position: absolute;
+    z-index: 1;
+    align-self: center;
+    color: transparent;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-image: url("../assets/arrow.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: none;
+    background-color: rgba($color: #ffffff, $alpha: 0.3);
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(305deg) brightness(103%) contrast(101%);
+}
+
+body{
+    .carrito_container{
+        display: block;
+        background-color: $negro2;
+        z-index: 5;
+        position: fixed;
+        right: 20px;
+        width: 500px;
+        height: 0px;
+        overflow: hidden;
+        .carrito{
+            padding: 5px;
+            height: 100%;
+            position: relative;
+            .carrito__productos{
+                height: 200px;
+                overflow: scroll;
+                .carrito__sinproducto{
+                    color: $naranja;
+                    font-size: 30px;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-decoration: underline;
+                }
+                .carrito__producto{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    height: 50px;
+                    color: $blanco;
+                    overflow: hidden;
+                    margin: 5px 0px;
+                    font-size: 15px;
+                    .producto__imagen{
+                        height: 75px;
+                        img{
+                            height: 75px;
+                            width: 75px;
+                        }
+                    }
+                    .producto__nombre{
+                        width: 50%;
+                        p{
+                            width: 100%;
+                        }
+                    }
+                    
+                    .carritodeleteicon{
+                        width: 30px;
+                        cursor: pointer;
+                    }
+                }
+            }
+            .carrito__info{
+                position: absolute;
+                bottom: 0px;
+                width: 100%;
+                height: 50px;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                .subtotal{
+                    p{
+                        font-size: 20px;
+                        color: $naranja;
+                        font-weight: 900;
+                        
+                    }
+                }
+                .button{
+                    cursor: pointer;
+                    p{
+                        color: $blanco;
+                        background-color: $naranja;
+                        // padding: 20px;
+                        width: 150px;
+                        height: 40px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 5px;
+                        i{
+                            margin-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .carrito_container_active{
+        height: calc(280px + 60px);
+    }
+    margin-left: 80px;
+    margin-top: 80px;
+    background-color: $negro1;
+    header{
+        width: 100%;
+        height: 80px;
+        background: $negro2;
+        display: flex;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        z-index: 200;
+        transition: 300ms;
+        .header__content{
+            width: calc(100% - 80px);
+            position: relative;
+            display: flex;
+            align-items: center;
+            transition: 300ms;
+            .icon__menu{
+                width: 50px;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transform: translateX(10px);
+                i{
+                    font-size: 20px;
+                    cursor: pointer;
+                    position: absolute;
+                    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(305deg) brightness(103%) contrast(101%);
+                }
+            }
+        }
+        .header__content_active{
+            width: calc(100% - 240px);
+        }
+        .header__search{
+            width: fit-content;
+            overflow: hidden;
+            position: absolute;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            div{
+                border-bottom: 1px solid $blanco;
+                input{
+                    color: $blanco;
+                    border: none;
+                    width: 0px;
+                    padding-bottom: 5px;
+                    outline: none;  
+                    background-color: transparent;
+                    transition: width 300ms;
+                }
+            }
+            i{
+                cursor: pointer;
+                filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(305deg) brightness(103%) contrast(101%);
+                
+            }
+            .cart_icon{
+                margin-left: 20px;
+            }
+            .input_transition_active{
+                width: 50vw;
+            }
+        }
+    }
+    .body_move{
+        margin-left: 160px;
+    }
+    .menu__side{
+        width: 80px;
+        height: 100%;
+        background: $negro2;
+        position: fixed;
+        top: 0;
+        left: 0;
+        color: $blanco;
+        font-size: 18px;
+        z-index: 300;
+        overflow: hidden;
+        overflow-y: scroll;
+        border-right: 5px solid $negro2;
+        transition: all 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        .name__page{
+            margin-top: 30px;
+            width: 230px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            h4{
+                font-family: "Pathway Gothic One", sans-serif;
+                font-size: 30px;
+                font-style: italic;
+            }
+            
+            .fab__nike{
+                position: relative;
+                top: -0px;
+                right: 50px;
+                width: 80px;
+                transition: 300ms;
+                overflow: visible;
+            }
+            .fab__nike_moved{
+                right: 0px;
+            }
+            i{
+                width: 20px;
+                margin-right: 20px;
+            }
+        }
+        .options__menu{
+            padding: 20px 35px;
+            position: absolute;
+            top: 80px;
+            a{
+                color: $gris;
+                cursor: default;
+                display: block;
+                position: relative;
+                transition: color 300ms;
+                .option{
+                    padding: 20px 0px;
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+                    i{
+                        width: 20px;
+                        margin-right: 20px;
+                        cursor: pointer;
+                    }
+                    h4{
+                        font-weight: 300;
+                        cursor: pointer;
+                        width: 120px;
+                    }
+                }
+                &:hover{
+                    color: $blanco;
+                }
+            }
+            a.selected{
+                color: $blanco;
+                &:before{
+                    content: '';
+                    width: 3px;
+                    height: 80%;
+                    background: $blanco;
+                    position: absolute;
+                    top: 10%;
+                    left: -35px;
+                }
+            }
+        }
+        &::-webkit-scrollbar{
+            display: none;
+        }
+    }
+    .menu__side_move{
+        width: 250px;
+    }
+    
+    main{
+        padding: 10px;
+        .hero_slider__container{
+            margin: 2vw 0px;
+            .hero_slider{
+                .hero_slider__content{
+                    position: relative;
+                    img{
+                        width: 100%;
+                    }
+                    .overlay{
+                        position: absolute;
+                        top: 0px;
+                        right: 0px;
+                        font-family: 'Pathway Gothic One', sans-serif;
+                    }
+                    .slider_running__bann1{
+                        top: 5%;
+                        right: 35%;
+                        font-size: 20vw;
+                        color: #7c7c7c;
+                        font-style: italic;
+                        font-weight: 900;
+                    }
+                    .slider_running__bann2{
+                        top: 53%;
+                        right: 13%;
+                        font-size: 15vw;
+                        font-style: italic;
+                        font-weight: 900;
+                        color: transparent;
+                        -webkit-text-stroke-width: 1px;
+                        -webkit-text-stroke-color: #7c7c7c;
+                        
+                    }
+                    .slider_generic__bann{
+                        top: 57%;
+                        left: 15%;
+                        font-size: 15vw;
+                        color: $blanco;
+                        font-style: italic;
+                        font-weight: 900;  
+                        -webkit-text-stroke-color: #7c7c7c;
+                        filter: drop-shadow(-4px 1px 1px $negro2);
+                        
+                    }
+                }
+            }
+        }
+
+        h1{
+            color: $blanco;
+            font-size: 60px;
+            font-family: 'Pathway Gothic One', sans-serif;
+            font-style: italic;
+            text-align: center;
+        }
+        h2{
+            color: $gris;
+            font-size: 49px;
+            font-family: 'Pathway Gothic One', sans-serif;
+            font-style: italic;
+            width: fit-content;
+            margin: 3% 0px 1% 10%;
+        }
+        .index_text{
+            width: 60%;
+            margin: auto;
+            text-align: center;
+            color: $gris;
+            font-size: 20px;
+            p{
+                margin: 30px 0px;
+            }
+        }
+        .mostSelledProducts__container{
+            width: 90%;
+            margin: auto;
+            display: flex;
+            height: 80%;
+            .product__container{
+                overflow: hidden;
+                margin: 0px 14px;
+                display: flex;
+                justify-content: center;
+                div{
+                    width: 300px;
+                    img{
+                        width: 100%;
+                        
+                    }
+                    p{
+                        color: $gris;
+                        text-align: center;
+                        margin: 7px;
+                        font-size: 18px;
+                        &:last-child{
+                            font-weight: 900;
+                            color: $naranja;
+                        }
+                    }
+                }
+            }
+        }
+
+        .cat__container{
+            margin: 80px auto;
+            width: 90%;
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            flex-direction: row;
+            gap: 50px 25px;
+            .cat{
+                position: relative;
+                img{
+                    width: 400px;
+                    height: 400px;
+                }
+                &:hover{
+                    cursor: pointer;
+                    .overlay{
+                        opacity: 100%;
+                    }
+                }
+                .overlay{
+                    transition: opacity 0.3s;
+                    opacity: 0%;
+                    position: absolute;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    height: 99%;
+                    background-color: rgba($color: $negro2, $alpha: 0.5);
+                    top: 0px;
+                    h3{
+                        color: $naranja;
+                        font-size: 40px;
+                        filter: drop-shadow(2px 2px 0px $negro2);
+                    }
+                }
+            }
+        }
+    }
+
+}
+footer{
+    overflow: hidden;
+    width: 100%;
+    height: 250px;
+    background-color: $negro2;
+    display: grid;
+    grid-template-columns: 0.25fr 0.25fr 0.25fr 0.5fr 0.75fr 300px;
+    grid-template-rows: 0.75fr 0.25fr;
+    grid-template-areas: 
+    "logo logo logo acercade empty socialmedia"
+    "location location location location empty notations";
+    .logo{
+        grid-area: logo;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        div{
+            h2{
+                color: $blanco;
+                font-size: 60px;
+                font-style: italic;
+                font-weight: 900;
+                font-family: 'Pathway Gothic One', sans-serif;
+
+            }
+        }
+        img{
+            width: 150px;
+        }
+    }
+    .acercade{
+        grid-area: acercade;
+        div{
+            position: relative;
+            right: -30px;
+            top: 40px;
+            width: fit-content;
+            h4{
+                color: $blanco;
+                font-size: 20px;
+                font-style: italic;
+                font-family: 'Pathway Gothic One', sans-serif;
+                font-weight: 300;
+                width: fit-content;
+            }
+            ul{
+                width: fit-content;
+                li{
+                    width: fit-content;
+                    a{
+                        color: $gris;
+                        text-decoration: none;
+                        transition: color 0.3s;
+                        font-size: 15px;
+                        width: fit-content;
+                        &:hover{
+                            color: $blanco;
+                        }
+                    }
+                    height: 15px;
+                    list-style: none;
+                    margin: 8px;
+                    text-indent: 9px;
+                }
+            }
+        }
+    }
+    .empty{
+        grid-area: empty;
+    }
+    .socialmedia{
+        grid-area: socialmedia;
+        .socialmedia__container{
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-evenly;
+            div{
+                opacity: 30%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: $gris;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                transition: opacity 0.3s;
+                cursor: pointer ;
+                img{
+                    width: 25px;
+                    height: 25px;
+                }
+                &:hover{
+                    opacity: 100%;
+                }
+            }
+        }
+    }
+    .location{
+        margin-left: 10%;
+        grid-area: location;
+        position: relative;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        .location_location{
+            display: flex;
+            align-items: center;
+            img{
+                margin-right: 5px;
+                width: 15px;
+                filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(305deg) brightness(103%) contrast(101%);
+
+            }
+            p{
+                color: $blanco;
+                font-weight: 700;
+                font-size: 15px;
+            }
+        }
+        .location_copy{
+            p{
+                color: $gris;
+                font-weight: 700;
+                font-size: 15px;
+            }
+        }
+
+    }
+    .notations{
+        grid-area: notations;
+        position: relative;
+        div{
+            width: 100%;
+            position: absolute;
+            bottom: 5px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            a{
+                color: $gris;
+                transition: color 0.3s;
+                font-size: 15px;
+                width: fit-content;
+                &:hover{
+                    color: $blanco;
+                }
+            }
+        }
+    }
+}
+
+.icon_active{
+    filter: invert(45%) sepia(28%) saturate(4987%) hue-rotate(348deg) brightness(97%) contrast(88%);
+}
+
+main{
+    position: relative;
+    .showingproduct_container{
+        z-index: 3;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($color: $gris, $alpha: 0.3);
+        position: absolute;
+        top: -10px;
+        right: 0px;
+        display: none;
+        justify-content: center;
+        .buttonclose{
+            width: 30px;
+            height: 30px;
+            position: fixed;
+            top: 100px;
+            z-index: 2000;
+            right: 0px; 
+            i{
+               scale: 1.5;
+               cursor: pointer;
+            }
+        }
+        .showingproduct_main{
+            position: fixed;
+            margin-top: 1vw;
+            width: 80%;
+            height: fit-content;
+            background-color: $negro1;
+            .showingproduct_main_content{
+                padding: 20px;
+                display: flex;
+                flex-wrap: wrap;
+                .modal__image_cont{
+                    width: 50%;
+                    img{
+                        width: 100%;
+                    }
+                }
+                .modal_right{
+                    width: 50%;
+                    .modal__title_cont{
+                        h3{
+                            max-height: 50vh;
+                            width: 100%;
+                            padding: 20px 10px;
+                            font-family: "Pathway Gothic One", sans-serif;
+                            font-style: italic;
+                            font-weight: 900;
+                            font-size: 7vw;
+                            line-height: 7.4vw;
+
+
+                            background: linear-gradient(97.87deg, $naranja 14.25%, $blanco 131.66%);
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                            background-clip: text;
+                        }
+                    }
+                    .modal__price_cont{
+                        
+                        margin-bottom: 20px;
+                        p{
+                            font-size: 3vw;
+                            font-family: "Pathway Gothic One", sans-serif;
+                            color: $blanco;
+                            font-weight: 900;
+                            font-style: italic;
+                            width: 100%;
+                            text-align: center;
+                            text-indent: -25vw;
+
+                        }
+                    }
+                    .modal__buttons_cont{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                        a{
+                            width: 40%;
+                            height: 50px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            color: $blanco;
+                            border-radius: 5px;
+                            gap: 20px;
+                            transition: 300ms;
+                            margin: 10px;
+                            i{
+                                margin-right: 10px;
+                            }
+                            &:hover{
+                                scale: 1.03;
+                            }
+                        }
+                        .modal__buttonpay{
+                            background-color: $naranja;
+                        }
+                        .modal__buttoncart{
+                            background-color: $negro2;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+.productoslista{
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .product__container{
+        overflow: hidden;
+        cursor: pointer;
+        margin: 0px 14px;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        div{
+            width: 300px;
+            img{
+                width: 100%;
+                
+            }
+            p{
+                color: $gris;
+                text-align: center;
+                margin: 7px;
+                font-size: 18px;
+                &:last-child{
+                    font-weight: 900;
+                    color: $naranja;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:1200px) {
+
+
+    footer{
+        height: fit-content;
+        text-align: center;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(2, 1fr) 0.3fr;
+        grid-template-areas: 
+        "logo socialmedia"
+        "acercade acercade"
+        "location notations";
+        .empty{
+            display: none;
+        }
+        .location{
+            justify-content: center;
+            margin-left: 0%;
+            gap: 0px;
+            align-content: flex-end;
+        }
+        .acercade{
+            display: flex;
+            justify-content: center;
+            div{
+                position: static;
+                ul{
+                    width: 100%;
+                    li{
+                        width: 100%;
+                        text-align: center;
+                        margin: 10px 0px;
+                        text-indent: 0px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width:1025px) {
+    main{
+        .showingproduct_container{
+            .showingproduct_main{
+                margin-top: 0px;
+                .showingproduct_main_content{
+                    
+                    .modal__image_cont{
+                        width: 100%;
+                    }
+                    .modal_right{
+                        width: 100%;
+                        .modal__buttons_cont{
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            a{
+                                width: 80%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    
+    }
+}
+
+@media screen and (max-width:992px) {
+
+    .logo{
+        min-height: 140%;
+        ::before{
+            content: "NIKE";
+        font-size: 80px;
+        font-family: "Pathway Gothic One", sans-serif;
+        font-style: italic;
+        font-weight: 800;
+        color: $blanco;
+        position: absolute;
+        top: 0%;
+        left: 5%;
+        }
+    }
+   
+    
+}
+
+@media screen and (max-width:760px) {
+    body{
+        margin-left: 0px;
+        header{
+            .header__content_active{
+                width: calc(100% + 80px);
+            
+            }
+            margin-left: 80px;
+        }
+        .menu__side_move{
+            width: 80px;
+            left: -80px;
+        }
+        .body_move{
+            margin-left: 0px;
+        }
+    }
+
+
+}
+@media screen and (max-width:578px) {
+    .logo{
+        ::before{
+        left: 15vw;
+        }
+    }
+}
+
+@media screen and (max-width:420px) {
+    .logo{
+        ::before{
+        left: 4vw;
+        }
+    }
+    footer{
+        row-gap: 30px;
+        height: 600px;
+        text-align: center;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.25fr 0.5fr 0.25fr 0.2fr 0.2fr;
+        grid-template-areas: 
+        "logo"
+        "acercade"
+        "socialmedia"
+        "location"
+        "notations";
+        .empty{
+            display: none;
+        }
+        .location{
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            margin: 20px 0px;
+            flex-wrap: nowrap;
+        }
+        .acercade{
+            display: flex;
+            justify-content: center;
+            div{
+                position: static;
+                ul{
+                    width: 100%;
+                    li{
+                        width: 100%;
+                        text-align: center;
+                        margin: 10px 0px;
+                        text-indent: 0px;
+                    }
+                }
+            }
+        }
+    }
+
+    body{
+        main{
+            .mostSelledProducts__container{
+                width: 70%;
+            }
+            h1{
+                font-size: 40px;
+            }
+            h2{
+                font-size: 29px;
+            }
+            .cat__container{
+                    .cat{
+                        img{
+                            width: 250px;
+                            height: 250px;
+                        }
+                    }
+                }
+
+        }
+    }
+}
+.loader {
+    font-size: 10px;
+    margin: 30% auto;
+    text-indent: -9999em;
+    width: 11em;
+    height: 11em;
+    border-radius: 50%;
+    background: #ffffff;
+    background: -moz-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+    background: -webkit-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+    background: -o-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+    background: -ms-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+    background: linear-gradient(to right, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+    position: relative;
+    -webkit-animation: load3 1.4s infinite linear;
+    animation: load3 1.4s infinite linear;
+  }
+  .loader:before {
+    width: 50%;
+    height: 50%;
+    background: #FFF;
+    border-radius: 100% 0 0 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+  }
+  .loader:after {
+    background: $negro1;
+    width: 75%;
+    height: 75%;
+    border-radius: 50%;
+    content: '';
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+.rlnike{
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+    background-color: $negro2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    .swal2-container{
+        position: absolute ;
+        height: 100vh;
+    }
+    .goback{
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        a{
+            color: $blanco;
+        }
+    }
+    .formcontainer{
+        background-color: $negro1;
+        width: 20vw;
+        height: 250px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+        position: fixed;
+        top: 30%;
+        .inputs_cont{
+            display: flex;
+            flex-direction: column;
+            color: $blanco;
+            font-size: 20px;
+            font-family: "Pathway Gothic One", sans-serif;
+            font-style: italic;
+            width: 80%;
+            div{
+                margin-bottom: 30px;
+                display: flex;
+                flex-direction: column;
+                input{
+                    background-color: transparent;
+                    border: none;
+                    border-bottom: 1px solid $negro2;
+                    border-right: 1px solid $negro2;
+                    border-radius: 3px;
+                    outline: none;  
+                    color: $blanco;
+                    margin-top: 5px;
+                }   
+            }
+        }
+        .botones{
+            width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            a{
+                background-color: $naranja;
+                padding:5px 40%;
+                border-radius: 3px;
+                color: $blanco;
+                font-size: 15px;
+                font-family: "Pathway Gothic One", sans-serif;
+                font-style: italic;
+            }
+        }
+    }
+}
+
+  @-webkit-keyframes load3 {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes load3 {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
